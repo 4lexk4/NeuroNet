@@ -1,8 +1,9 @@
-﻿using NeuroNet.Generic;
+﻿using GeneticNet;
+using NeuroNet.Generic;
 
 namespace NeuroNet.Implementation.Common
 {
-    internal sealed class Perceptron : GenericSliceNetwork<double>
+    public sealed class Perceptron : GenericSliceNetwork<double>, IIndividual<double>
     {
         public Perceptron(params int[] slicesLength)
         {
@@ -27,6 +28,18 @@ namespace NeuroNet.Implementation.Common
             {
                 outputValues[i] = OutputSlice.Neurons[i].Output;
             }
+        }
+
+        public int NumberOfChromosomes => Slices.Count;
+
+        public IIndividual<double> GetClone()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public double CalculateFitness(Template<double> input)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

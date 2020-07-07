@@ -2,7 +2,7 @@
 
 namespace NeuroNet.Implementation.Common
 {
-    internal sealed class CommonAxon : GenericAxon<double>
+    public sealed class CommonAxon : GenericAxon<double>
     {
         protected override double GetOutputValue()
         {

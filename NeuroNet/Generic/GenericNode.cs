@@ -5,6 +5,13 @@
         private T _cachedValue;
         private bool _cached;
 
+        protected GenericNode()
+        {
+            Parameters = new T[NumberOfParameters];
+        }
+
+        protected virtual int NumberOfParameters { get; } = 0;
+
         public T Output
         {
             get
@@ -24,6 +31,8 @@
                 _cachedValue = value;
             }
         }
+
+        public T[] Parameters { get; }
 
         public void ResetCache()
         {
