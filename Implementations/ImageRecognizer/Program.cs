@@ -12,11 +12,15 @@ namespace ImageRecognizer
         {
             var perceptron = new Perceptron(16 * 16, 16 * 16, 10);
 
-            var populationSize = 50;
+            const int populationSize = 50;
+
             var generatorSettings = new GeneratorSettings(populationSize);
             var generator =  Procedure.Generator.Random<Perceptron, double>(generatorSettings, perceptron);
 
             var teacher = Teacher<Perceptron, double>.SingleThreaded(perceptron);
+            var templates = new List<Template<double>>();
+
+            teacher.Teach(templates, generator);
         }
     }
 }

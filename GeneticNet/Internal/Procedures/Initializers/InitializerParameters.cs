@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace GeneticNet.Internal.Procedures.Generators
+namespace GeneticNet.Internal.Procedures.Initializers
 {
-    internal class GeneratorParameters<TIndividual, T> : IProcedureParameters
+    internal class InitializerParameters<TIndividual, T> : IProcedureParameters
         where TIndividual : IIndividual<T>
         where T : IComparable<T>
     {
-        public GeneratorParameters(TIndividual individual)
+        public InitializerParameters(TIndividual individual)
         {
             Individual = individual;
             Population = new Population<TIndividual, T>();

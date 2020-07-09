@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using GeneticNet.Internal.Teachers;
-using GeneticNet.Procedures.Generators;
+using GeneticNet.Procedures;
+using IGeneratorSettings = GeneticNet.Procedures.Generators.IGeneratorSettings;
 
 namespace GeneticNet
 {

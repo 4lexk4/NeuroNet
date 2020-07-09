@@ -1,13 +1,13 @@
 ﻿using System;
 using GeneticNet.Procedures.Generators;
 
-namespace GeneticNet.Internal.Procedures.Generators
+namespace GeneticNet.Internal.Procedures.Initializers
 {
-    internal sealed class RandomGenerator<TIndividual, T> : IInternalGenerator<GeneratorSettings, GeneratorParameters<TIndividual, T>>
+    internal sealed class RandomInitializer<TIndividual, T> : IInternalGenerator<GeneratorSettings, InitializerParameters<TIndividual, T>>
         where TIndividual : IIndividual<T>
         where T : IComparable<T>
     {
-        public RandomGenerator(GeneratorSettings settings, GeneratorParameters<TIndividual, T> parameters)
+        public RandomInitializer(GeneratorSettings settings, InitializerParameters<TIndividual, T> parameters)
         {
             Settings = settings ?? throw new ArgumentNullException(nameof(settings));
             Parameters = parameters ?? throw new ArgumentNullException(nameof(parameters));
@@ -15,7 +15,7 @@ namespace GeneticNet.Internal.Procedures.Generators
 
         public GeneratorSettings Settings { get; }
 
-        public GeneratorParameters<TIndividual, T> Parameters { get; }
+        public InitializerParameters<TIndividual, T> Parameters { get; }
 
         public void Perform()
         {

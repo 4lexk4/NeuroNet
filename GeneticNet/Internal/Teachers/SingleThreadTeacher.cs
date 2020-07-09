@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GeneticNet.Procedures.Generators;
-
+using GeneticNet.Internal.Procedures.Initializers;
+using GeneticNet.Procedures;
+using IGeneratorSettings = GeneticNet.Procedures.Generators.IGeneratorSettings;
 
 namespace GeneticNet.Internal.Teachers
 {
@@ -18,7 +19,7 @@ namespace GeneticNet.Internal.Teachers
 
         public override TIndividual Teach(IEnumerable<Template<T>> templates, IGenerator<IGeneratorSettings> generator)
         {
-            generator.Perform();
+            generator.Perform<InitializerParameters<TIndividual, T>>(new InitializerParameters<TIndividual, T>(_individual));
 
             return _individual;
         }
