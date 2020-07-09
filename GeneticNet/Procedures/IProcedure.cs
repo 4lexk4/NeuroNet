@@ -7,6 +7,6 @@ namespace GeneticNet.Procedures
     {
         TProcedureSettings Settings { get; }
 
-        internal void Perform<T>(IProcedureParameters parameters) where T : IProcedureParameters;
+        internal void Perform<TProcedureParameters>(IProcedureParameters parameters) where TProcedureParameters : IProcedureParameters;
     }
 }

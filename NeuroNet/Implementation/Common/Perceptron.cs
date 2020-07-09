@@ -7,10 +7,11 @@ namespace NeuroNet.Implementation.Common
     {
         public Perceptron(params int[] slicesLength)
         {
-            for (var i = 0; i < slicesLength.Length; i++)
+            foreach (var sliceLength in slicesLength)
             {
-                Slices[i] = new CommonSlice(slicesLength[i]);
+                Slices.Add(new CommonSlice(sliceLength));
             }
+
             for (var i = 0; i < Slices.Count - 1; i++)
             {
                 Slices[i].ConnectWith<CommonAxon>(Slices[i + 1]);

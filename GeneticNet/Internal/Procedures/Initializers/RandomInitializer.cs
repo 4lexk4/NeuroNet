@@ -1,4 +1,5 @@
 ﻿using System;
+using GeneticNet.Procedures;
 using GeneticNet.Procedures.Generators;
 
 namespace GeneticNet.Internal.Procedures.Initializers
@@ -15,14 +16,14 @@ namespace GeneticNet.Internal.Procedures.Initializers
 
         public GeneratorSettings Settings { get; }
 
-        public InitializerParameters<TIndividual, T> Parameters { get; }
-
-        public void Perform()
+        void IProcedure<GeneratorSettings>.Perform<TProcedureParameters>(IProcedureParameters parameters)
         {
             for (var i = 0; i < Settings.PopulationSize; i++)
             {
                 Parameters.Population.Add(new GeneticIndividual<T>(Parameters.Individual.GetClone()));
             }
         }
+
+        public InitializerParameters<TIndividual, T> Parameters { get; }
     }
 }
